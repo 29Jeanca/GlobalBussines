@@ -106,7 +106,8 @@
                     <Button x:Name="BtnProveedores"
                             Cursor="Hand"
                             Background="Transparent"
-                            BorderBrush="Transparent" Height='150'>
+                            BorderBrush="Transparent" Height='150'
+                            Click='BtnProveedores_Click'>
                         <Image Width="30"
                                HorizontalAlignment="Center"
                                Source="https://i.imgur.com/tPfzJPO.png"/>

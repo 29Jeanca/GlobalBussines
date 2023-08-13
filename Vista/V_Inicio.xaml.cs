@@ -48,5 +48,12 @@ namespace GlobalBussines.Vista
             clientes.Show();
             this.Close();
         }
+
+        private void BtnProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            V_Proveedores proveedores = new V_Proveedores();
+            proveedores.Show();
+            this.Close();
+        }
     }
 }

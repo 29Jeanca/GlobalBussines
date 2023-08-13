@@ -122,6 +122,9 @@
     <Compile Include="Vista\V_Inicio.xaml.cs">
       <DependentUpon>V_Inicio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vista\V_Proveedores.xaml.cs">
+      <DependentUpon>V_Proveedores.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\BD\ConxBD.cs" />
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\V_Inicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\V_Proveedores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
