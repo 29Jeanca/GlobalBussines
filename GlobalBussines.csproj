@@ -116,6 +116,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Vista\V_Clientes.xaml.cs">
+      <DependentUpon>V_Clientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\V_Inicio.xaml.cs">
       <DependentUpon>V_Inicio.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
     <Folder Include="Modelo\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Vista\V_Clientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\V_Inicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

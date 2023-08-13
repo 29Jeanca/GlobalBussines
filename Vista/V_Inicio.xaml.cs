@@ -31,5 +31,22 @@ namespace GlobalBussines.Vista
                 DragMove();
             }
         }
+
+        private void BtnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+            V_Clientes clientes = new V_Clientes();
+            clientes.Show();
+            this.Close();
+        }
     }
 }

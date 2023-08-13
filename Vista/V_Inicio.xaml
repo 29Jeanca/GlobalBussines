@@ -14,11 +14,6 @@
         AllowsTransparency="True"
         Background="Transparent"
         MouseDown='Window_MouseDown'>
-    <Window.Resources>
-        <!--#region DATATEMPLATE CLIENTES-->
-
-        <!--#endregion DATATEMPLATE CLIENTES-->
-    </Window.Resources>
     <Border CornerRadius="10"
             Background="GhostWhite">
         <Grid Name="Principal"
@@ -43,34 +38,24 @@
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="10"/>
-                    <!--#region Minimizar-->
-                    <Button x:Name="BtnMinimizar"
-                            Grid.Column="2"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Height="23"
-                            Width="22"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            Margin="0,8,25,0">
-                        <Image Source="https://i.imgur.com/KiLR8Um.png"
-                               Cursor="Hand"/>
+                    <Button Grid.Column='2'
+                            BorderBrush='Transparent'
+                            Background='Transparent'
+                            x:Name='BtnMinimizar'
+                            Click='BtnMinimizar_Click'
+                            HorizontalAlignment='Right' Margin='0,0,30,0'>
+                        <Image Source='https://i.imgur.com/KiLR8Um.png' />
+                    </Button>
+                    <Button Grid.Column='2'
+                            HorizontalAlignment='Right'
+                            BorderBrush='Transparent'
+                            Background='Transparent'
+                            x:Name='BtnCerrar'
+                            Click='BtnCerrar_Click'
+                            >
+                        <Image Source='https://i.imgur.com/b47hs6W.png' />
                     </Button>
 
-                    <!--#endregion Minimizar-->
-                    <!--#region cerrar-->
-                    <Button x:Name="BtnCerrar"
-                            Grid.Column="2"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Height="25"
-                            Width="25"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            Margin="0,7,0,0">
-                        <Image Source="https://i.imgur.com/b47hs6W.png"
-                               Cursor="Hand"/>
-                    </Button>
 
                     <!--#endregion Minimizar-->
                 </Grid>
@@ -83,7 +68,7 @@
                   HorizontalAlignment="Right"
                   Height="560"
                   Width="925"
-                  PreviewMouseLeftButtonDown="PreviewMouseLeftBotttomDownBG">
+                  >
                 <Border CornerRadius="0,0,0,10"
                         Background="#ffedff"/>
                 <ContentControl Content="{Binding}"/>
@@ -99,66 +84,43 @@
                         CornerRadius="0,0,0,10"/>
                 <!--#region MENU-->
                 <StackPanel Background="Transparent"
-                            VerticalAlignment="Top">
-                    <!--#region INICIO-->
-                    <ListViewItem Height="40"
-                                  Margin="0,20,0,0">
-                        <Button x:Name="BtnInicio"
-                                Cursor="Hand"
-                                Background="Transparent"
-                                BorderBrush="Transparent">
-                            <Grid Width="60">
-                                <Image Width="30"
-                                       HorizontalAlignment="Center"
-                                       Source="https://i.imgur.com/sahZxst.png"/>
-                            </Grid>
-                        </Button>
-                    </ListViewItem>
-                    <!--#endregion INICIO-->
-                    <!--#region CLIENTES-->
-                    <ListViewItem Height="40"
-                                  Margin="0,20,0,0">
-                        <Button x:Name="BtnClientes"
-                                Cursor="Hand"
-                                Background="Transparent"
-                                BorderBrush="Transparent">
-                            <Grid Width="60">
-                                <Image Width="30"
-                                       HorizontalAlignment="Center"
-                                       Source="https://i.imgur.com/DrXiSZb.png"/>
-                            </Grid>
-                        </Button>
-                    </ListViewItem>
-                    <!--#endregion CLIENTES-->
-                    <!--#region PROVEEDORES-->
-                    <ListViewItem Height="40"
-                                  Margin="0,20,0,0">
-                        <Button x:Name="BtnProveedores"
-                                Cursor="Hand"
-                                Background="Transparent"
-                                BorderBrush="Transparent">
-                            <Grid Width="60">
-                                <Image Width="30"
-                                       HorizontalAlignment="Center"
-                                       Source="https://i.imgur.com/tPfzJPO.png"/>
-                            </Grid>
-                        </Button>
-                    </ListViewItem>
+                            VerticalAlignment="Top"
+                            Height='auto'>
+                    <Button x:Name="BtnInicio"
+                            Cursor="Hand"
+                            Background="Transparent"
+                            BorderBrush="Transparent" Height='150'>
+                        <Image Width="30"
+                               HorizontalAlignment="Center"
+                               Source="https://i.imgur.com/sahZxst.png"/>
+                    </Button>
+                    <Button x:Name="BtnClientes"
+                            Cursor="Hand"
+                            Background="Transparent"
+                            BorderBrush="Transparent" Height='150'
+                            Click='BtnClientes_Click'>
+                        <Image Width="30"
+                               HorizontalAlignment="Center"
+                               Source="https://i.imgur.com/DrXiSZb.png"/>
+                    </Button>
+                    <Button x:Name="BtnProveedores"
+                            Cursor="Hand"
+                            Background="Transparent"
+                            BorderBrush="Transparent" Height='150'>
+                        <Image Width="30"
+                               HorizontalAlignment="Center"
+                               Source="https://i.imgur.com/tPfzJPO.png"/>
+                    </Button>
                     <!--#endregion PROVEEDORES-->
                     <!--#region FACTURACION-->
-                    <ListViewItem Height="40"
-                                  Margin="0,20,0,0">
-                        <Button x:Name="BtnFacturacion"
-                                Cursor="Hand"
-                                Background="Transparent"
-                                BorderBrush="Transparent">
-                            <Grid Width="60">
-                                <Image Width="30"
-                                       HorizontalAlignment="Center"
-                                       Source="https://i.imgur.com/MTs3Mr3.pngg"/>
-                            </Grid>
-                        </Button>
-                    </ListViewItem>
+                    <Button x:Name="BtnFacturacion"
+                            Cursor="Hand"
+                            Background="Transparent"
+                            BorderBrush="Transparent" Height='120'>
+                        <Image Width="30"
+                               HorizontalAlignment="Center"
+                               Source="https://i.imgur.com/MTs3Mr3.pngg"/>
+                    </Button>
                     <!--#endregion FACTURACION-->
                 </StackPanel>
                 <!--#endregion MENU-->
