@@ -1,16 +1,7 @@
-﻿using System;
+﻿using GlobalBussines.Clases;
+using GlobalBussines.Controlador;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GlobalBussines.Vista
 {
@@ -19,9 +10,20 @@ namespace GlobalBussines.Vista
     /// </summary>
     public partial class V_Proveedores : Window
     {
+        private readonly ControladorProveedor controladorProveedor;
         public V_Proveedores()
         {
             InitializeComponent();
+            controladorProveedor = new ControladorProveedor();
+            List<Proveedor> ListaProveedores = controladorProveedor.CargarListaProveedores();
+            GridDatos.ItemsSource = ListaProveedores;
+        }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            string busqueda = BarraBusqueda.Text;
+            List<Proveedor> resultadoBusqueda = controladorProveedor.BarraBusqueda(busqueda);
+            GridDatos.ItemsSource = resultadoBusqueda;
         }
     }
 }

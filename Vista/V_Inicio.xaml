@@ -73,7 +73,23 @@
                         Background="#ffedff"/>
                 <ContentControl Content="{Binding}"/>
             </Grid>
-            <!--#endregion CONTENT-->
+            <TextBlock x:Name='Hora'
+                       Text='10:00'
+                       FontSize='130'
+                       FontFamily='Arial'
+                       Foreground='#ffbf00'
+                       HorizontalAlignment='Left'
+                       VerticalAlignment='Top'
+                       Margin='120,100,0,0' />
+            <TextBlock Text='Lunes,14 de agosto de 2023'
+                       FontSize='40'
+                       Margin='90,0,0,250'
+                       TextAlignment='Center'
+                       HorizontalAlignment='Left'
+                       VerticalAlignment='Bottom'
+                       Foreground='#ffbf00'
+                       x:Name='Fecha'/>
+            <!--#endregion CONTENT-->   
             <!--#region SideBAR-->
             <Grid x:Name="GridMenu"
                   Background="Transparent"

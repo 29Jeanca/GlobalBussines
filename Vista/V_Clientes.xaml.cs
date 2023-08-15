@@ -1,16 +1,9 @@
-﻿using System;
+﻿using GlobalBussines.Clases;
+using GlobalBussines.Controlador;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GlobalBussines.Vista
 {
@@ -19,9 +12,27 @@ namespace GlobalBussines.Vista
     /// </summary>
     public partial class V_Clientes : Window
     {
+        private readonly ControladorCliente controladorCliente;
         public V_Clientes()
         {
             InitializeComponent();
+            controladorCliente = new ControladorCliente();
+            List<Cliente> clientes = controladorCliente.ClientesRegistrados();
+            GridDatos.ItemsSource = clientes;
+            
+
+        }
+
+        private void BarraBusqueda_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            string busqueda = BarraBusqueda.Text;
+            List<Cliente> resultadoBusqueda = controladorCliente.BarraBusqueda(busqueda);
+            GridDatos.ItemsSource = resultadoBusqueda;
         }
     }
 }

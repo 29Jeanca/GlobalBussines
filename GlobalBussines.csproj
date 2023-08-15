@@ -116,6 +116,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Clases\Cliente.cs" />
+    <Compile Include="Clases\Proveedor.cs" />
+    <Compile Include="Controlador\ControladorCliente.cs" />
+    <Compile Include="Controlador\ControladorProveedor.cs" />
+    <Compile Include="Modelo\ModeloCliente.cs" />
+    <Compile Include="Modelo\ModeloProveedor.cs" />
     <Compile Include="Vista\V_Clientes.xaml.cs">
       <DependentUpon>V_Clientes.xaml</DependentUpon>
     </Compile>
@@ -154,10 +160,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controlador\" />
-    <Folder Include="Modelo\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Vista\V_Clientes.xaml">
       <SubType>Designer</SubType>

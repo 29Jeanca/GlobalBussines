@@ -485,7 +485,8 @@
                      BorderBrush="#dec773"
                      Grid.Column="2"
                      Grid.Row="3"
-                     FontSize="20" />
+                     FontSize="20"
+                     x:Name='BarraBusqueda'/>
             <!--#endregion TEXTBOX-->
             <!--#region BTN BUSCADOR-->
             <Button Style="{DynamicResource STYLE_BTN_BUSCAR}"
@@ -497,6 +498,7 @@
                     Cursor="Hand"
                     Width="100"
                     x:Name="BtnBuscar"
+                    Click='BtnBuscar_Click'
                     HorizontalAlignment="Left">
                 <TextBlock Text="Buscar"
                            Foreground="Black"
@@ -540,23 +542,20 @@
                       HorizontalGridLinesBrush="#d3c17e">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nombre"
-                                        Width="*" />
+                                        Width="*"
+                                        Binding='{Binding Nombre}'/>
                     <DataGridTextColumn Header="Numero"
-                                        Width="*" />
+                                        Width="*"
+                                        Binding='{Binding Numero}'/>
                     <DataGridTextColumn Header="Correo"
-                                        Width="*" />
-                    <DataGridTextColumn Header="Productos"
-                                        Width="*" />
+                                        Width="*"
+                                        Binding='{Binding Correo}'/>
+                    <DataGridTextColumn Header="Producto"
+                                        Width="*" Binding='{Binding Producto}'/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--#endregion DATAGRID-->
             <!--#region FREAME CLIENTE-->
-            <Frame x:Name="FrameUsuarios"
-                   Grid.Column="0"
-                   Grid.Row="0"
-                   Grid.RowSpan="9"
-                   Grid.ColumnSpan="5"
-                   Navigated="FrameUsuarios_Navigated" />
             <!--#endregion FREAME CLIENTE-->
         </Grid>
     </Border>
