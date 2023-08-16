@@ -116,12 +116,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Clases\Citas.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Proveedor.cs" />
+    <Compile Include="Controlador\ControladorCita.cs" />
     <Compile Include="Controlador\ControladorCliente.cs" />
     <Compile Include="Controlador\ControladorProveedor.cs" />
+    <Compile Include="Modelo\ModeloCita.cs" />
     <Compile Include="Modelo\ModeloCliente.cs" />
     <Compile Include="Modelo\ModeloProveedor.cs" />
+    <Compile Include="Vista\V_AgregarCita.xaml.cs">
+      <DependentUpon>V_AgregarCita.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\V_AgregarCliente.xaml.cs">
+      <DependentUpon>V_AgregarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\V_AgregarProveedor.xaml.cs">
+      <DependentUpon>V_AgregarProveedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\V_Clientes.xaml.cs">
       <DependentUpon>V_Clientes.xaml</DependentUpon>
     </Compile>
@@ -130,6 +142,9 @@
     </Compile>
     <Compile Include="Vista\V_Proveedores.xaml.cs">
       <DependentUpon>V_Proveedores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\V_VerCitas.xaml.cs">
+      <DependentUpon>V_VerCitas.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -160,8 +175,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Page Include="Vista\V_AgregarCita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\V_AgregarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\V_AgregarProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\V_Clientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\V_Proveedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\V_VerCitas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

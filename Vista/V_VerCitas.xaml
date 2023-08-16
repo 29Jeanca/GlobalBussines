@@ -1,4 +1,4 @@
-﻿<Window x:Class='GlobalBussines.Vista.V_Proveedores'
+﻿<Window x:Class='GlobalBussines.Vista.V_VerCitas'
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         d:DesignHeight="560"
         d:DesignWidth="925"
-        Background="Transparent">
+        Background="Transparent" >
     <Window.Resources>
         <!--#region BUSCADOR-->
         <SolidColorBrush x:Key="TextBox.Static.Border"
@@ -397,87 +397,23 @@
                     </Grid.ColumnDefinitions>
                     <!--#endregion Columnas-->
                     <!--#region Btn 1 -->
-                    <Button x:Name="Btnnum1"
-                            Cursor="Hand"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Camisas"
-                                   FontSize="15" />
-                    </Button>
-                    <!--#endregion 1-->
-                    <!--#region Btn 2 -->
-                    <Button x:Name="Btnnum2"
-                            Cursor="Hand"
-                            Grid.Column="1"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Unformes"
-                                   FontSize="15" />
-                    </Button>
                     <Button VerticalAlignment='Top'
                             Margin='0,-35,60,0'
                             BorderBrush='Transparent'
                             Width='90'
                             Content='Atrás'
-                            Background='#d3c17e'
-                            Click='Button_Click'/>
-                    <!--#endregion 2-->
-                    <!--#region Btn 3 -->
-                    <Button x:Name="Btnnum3"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Suministros"
-                                   FontSize="15" />
-                    </Button>
-                    <!--#endregion 3-->
-                    <!--#region Btn 4 -->
-                    <Button x:Name="Btnnum4"
-                            Cursor="Hand"
-                            Grid.Column="3"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text=" Imp Pequeño formato"
-                                   FontSize="15" />
-                    </Button>
-                    <!--#endregion 4-->
-                    <!--#region Btn 5 -->
-                    <Button x:Name="Btnnum5"
-                            Cursor="Hand"
-                            Grid.Column="4"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Imp Gran formato"
-                                   FontSize="15" />
-                    </Button>
-                    <!--#endregion 5-->
+                            Background='#d3c17e' />
                 </Grid>
             </Grid>
-            <!--#endregion Barra de botones-->
-            <!--#region TITULO-->
-            <TextBlock Text="Proveedores"
+            <TextBlock Text="Citas"
                        Foreground="Black"
                        FontSize="25"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Grid.Column="2"
                        Height="34"
-                       Width="137" />
-            <!--#endregion TITULO-->
-            <!--#region BUSCADOR-->
-            <!--#region TEXTO-->
-            <TextBlock Text="Buscar Proveedor:"
+                       Width="auto" />
+            <TextBlock Text="Buscar Cita"
                        HorizontalAlignment="Right"
                        Grid.Column="1"
                        Grid.Row="3"
@@ -493,7 +429,7 @@
                      Grid.Column="2"
                      Grid.Row="3"
                      FontSize="20"
-                     x:Name='BarraBusqueda'/>
+                     x:Name='BarraBusqueda' />
             <!--#endregion TEXTBOX-->
             <!--#region BTN BUSCADOR-->
             <Button Style="{DynamicResource STYLE_BTN_BUSCAR}"
@@ -505,7 +441,6 @@
                     Cursor="Hand"
                     Width="100"
                     x:Name="BtnBuscar"
-                    Click='BtnBuscar_Click'
                     HorizontalAlignment="Left">
                 <TextBlock Text="Buscar"
                            Foreground="Black"
@@ -520,21 +455,28 @@
                     Cursor="Hand"
                     Width="150"
                     x:Name="BtnAgregarProveedor"
-                    Click='BtnAgregarProveedor_Click'
                     HorizontalAlignment="Left"
                     Style="{DynamicResource STYLE_BTN_BUSCAR}"
-                    Margin="52,0,0,0">
-                <TextBlock Text="Agregar Proveedor"
+                    Margin="52,0,0,0"
+                    Click='BtnAgregarProveedor_Click'>
+                <TextBlock Text="Agregar Cita"
                            FontSize="14" />
             </Button>
-            <!--#endregion BTN CREAR USUARIO-->
-            <!--#endregion BUSCADOR-->
-            <!--#region DATAGRID-->
+            <Button Grid.Column='2'
+                    Grid.Row='1'
+                    Width='320'
+                    Background='#00bb2d'
+                    BorderBrush='Transparent'>
+                <TextBlock Text='Toca dos veces la cita para más información'
+                           VerticalAlignment='Center'
+                           Foreground='#fff'
+                           Margin='10,0,0,0'
+                           FontFamily='Arial' />
+            </Button>
             <DataGrid Style="{DynamicResource STYLE_DATAGRID}"
                       Grid.Row="5"
-                      Grid.Column="1"
                       Grid.RowSpan="3"
-                      Grid.ColumnSpan="3"
+                      Grid.ColumnSpan="5"
                       x:Name="GridDatos"
                       AutoGenerateColumns="False"
                       Background="GhostWhite"
@@ -547,24 +489,33 @@
                       RowBackground="Transparent"
                       HeadersVisibility="Column"
                       GridLinesVisibility="Horizontal"
-                      HorizontalGridLinesBrush="#d3c17e">
+                      HorizontalGridLinesBrush="#d3c17e" IsReadOnly='True'
+                      MouseDoubleClick='GridDatos_MouseDoubleClick'>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Nombre"
+                    <DataGridTextColumn Header="Cédula"
                                         Width="*"
-                                        Binding='{Binding Nombre}'/>
-                    <DataGridTextColumn Header="Numero"
+                                        Binding='{Binding Cedula}' />
+                    <DataGridTextColumn Header="Nombre del cliente"
                                         Width="*"
-                                        Binding='{Binding Numero}'/>
-                    <DataGridTextColumn Header="Correo"
+                                        Binding='{Binding NombreCliente}' />
+                    <DataGridTextColumn Header="Nombre del departamento"
                                         Width="*"
-                                        Binding='{Binding Correo}'/>
-                    <DataGridTextColumn Header="Producto"
-                                        Width="*" Binding='{Binding Producto}'/>
+                                        Binding='{Binding NombreDepartamento}' />
+                    <DataGridTextColumn Header="Asesor que atiende"
+                                        Width="*"
+                                        Binding='{Binding NombreAsesor}' />
+                    <DataGridTextColumn Header="Hora de la cita"
+                                        Width="*"
+                                        Binding='{Binding HoraCita}' />
+                    <DataGridTextColumn Header="Fecha de la cita"
+                                        Width="*"
+                                        Binding='{Binding FechaCita}' />
+                    <DataGridTextColumn Header="Estado de la cita"
+                                        Width="*"
+                                        Binding='{Binding YaAtendida}' />
                 </DataGrid.Columns>
             </DataGrid>
-            <!--#endregion DATAGRID-->
-            <!--#region FREAME CLIENTE-->
-            <!--#endregion FREAME CLIENTE-->
+
         </Grid>
     </Border>
 

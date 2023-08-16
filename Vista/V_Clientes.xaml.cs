@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace GlobalBussines.Vista
 {
@@ -16,6 +17,8 @@ namespace GlobalBussines.Vista
         public V_Clientes()
         {
             InitializeComponent();
+            Uri iconUri = new Uri(@"https://i.imgur.com/QZN1jpV.png", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
             controladorCliente = new ControladorCliente();
             List<Cliente> clientes = controladorCliente.ClientesRegistrados();
             GridDatos.ItemsSource = clientes;
@@ -33,6 +36,13 @@ namespace GlobalBussines.Vista
             string busqueda = BarraBusqueda.Text;
             List<Cliente> resultadoBusqueda = controladorCliente.BarraBusqueda(busqueda);
             GridDatos.ItemsSource = resultadoBusqueda;
+        }
+
+        private void BtnAgregarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            V_AgregarCliente agregarCliente = new V_AgregarCliente();
+            agregarCliente.Show();
+            this.Close();
         }
     }
 }

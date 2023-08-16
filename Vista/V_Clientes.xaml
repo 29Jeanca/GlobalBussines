@@ -414,6 +414,7 @@
                     Cursor="Hand"
                     Width="150"
                     x:Name="BtnAgregarUsuario"
+                    Click='BtnAgregarUsuario_Click'
                     HorizontalAlignment="Right"
                     Style="{DynamicResource STYLE_BTN_BUSCAR}">
                 <TextBlock Text="Agregar Cliente"
