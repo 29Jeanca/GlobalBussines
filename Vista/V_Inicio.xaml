@@ -12,10 +12,10 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent"
+        Background="#0a0a0a"
         MouseDown='Window_MouseDown'>
     <Border CornerRadius="10"
-            Background="GhostWhite">
+            Background="#0a0a0a">
         <Grid Name="Principal"
               Background="Transparent">
             <!--#region HEADER-->
@@ -24,7 +24,7 @@
                   VerticalAlignment="Top"
                   Background="Transparent">
                 <Border CornerRadius="10,10,0,0"
-                        Background="#1c1c1c"/>
+                        Background="#0a0a0a"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -69,8 +69,43 @@
                   Height="560"
                   Width="925"
                   >
+
                 <Border CornerRadius="0,0,0,10"
-                        Background="#ffedff"/>
+                        Background="#1c1c1c"/>
+                <TextBlock Text='¡Hoy nos engargaremos de estas citas!😎' HorizontalAlignment='Right'
+                           VerticalAlignment='Center'
+                           Foreground='#dec773'
+                           FontSize='20'
+                           Margin='0,0,20,0'/>
+                <DataGrid materialDesign:DataGridAssist.SelectedCellBorderBrush="Crimson"
+                          CanUserAddRows="False"
+                          Width='auto'
+                          Height='250'
+                          VerticalAlignment='Bottom'
+                          HorizontalAlignment='Right'
+                          Margin='20,0,20,0'
+                          FontSize='12'>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Fecha de la cita"
+                                            Width="139"
+                                            Binding='{Binding }' />
+                        <DataGridTextColumn Header="Cliente"
+                                            Width="139"
+                                            Binding='{Binding }' />
+                        <DataGridTextColumn Header="Departamento"
+                                            Width="139"
+                                            Binding='{Binding }' />
+                        <DataGridTextColumn Header="Asesor"
+                                            Width="139"
+                                            Binding='{Binding }' />
+                        <DataGridTextColumn Header="Hora de la cita"
+                                            Width="139"
+                                            Binding='{Binding }' />
+                        <DataGridTextColumn Header="Tiempo restante para la cita"
+                                            Width="*"
+                                            Binding='{Binding }' />
+                    </DataGrid.Columns>
+                </DataGrid>
                 <ContentControl Content="{Binding}"/>
             </Grid>
             <TextBlock x:Name='Hora'
@@ -80,23 +115,23 @@
                        Foreground='#ffbf00'
                        HorizontalAlignment='Left'
                        VerticalAlignment='Top'
-                       Margin='120,100,0,0' />
+                       Margin='120,40,0,0' />
             <TextBlock Text='Lunes,14 de agosto de 2023'
                        FontSize='40'
-                       Margin='90,0,0,250'
+                       Margin='90,0,0,330'
                        TextAlignment='Center'
                        HorizontalAlignment='Left'
                        VerticalAlignment='Bottom'
                        Foreground='#ffbf00'
                        x:Name='Fecha'/>
-            <!--#endregion CONTENT-->   
+            <!--#endregion CONTENT-->
             <!--#region SideBAR-->
             <Grid x:Name="GridMenu"
                   Background="Transparent"
                   Width="75"
                   HorizontalAlignment="Left"
                   Margin="0,40,0,0">
-                <Border Background="#262626"
+                <Border Background="#0a0a0a"
                         CornerRadius="0,0,0,10"/>
                 <!--#region MENU-->
                 <StackPanel Background="Transparent"
@@ -122,7 +157,7 @@
                     <Button x:Name="BtnProveedores"
                             Cursor="Hand"
                             Background="Transparent"
-                            BorderBrush="Transparent" Height='150'
+                            BorderBrush="Transparent" Height='260'
                             Click='BtnProveedores_Click'>
                         <Image Width="30"
                                HorizontalAlignment="Center"
@@ -130,14 +165,6 @@
                     </Button>
                     <!--#endregion PROVEEDORES-->
                     <!--#region FACTURACION-->
-                    <Button x:Name="BtnFacturacion"
-                            Cursor="Hand"
-                            Background="Transparent"
-                            BorderBrush="Transparent" Height='120'>
-                        <Image Width="30"
-                               HorizontalAlignment="Center"
-                               Source="https://i.imgur.com/MTs3Mr3.pngg"/>
-                    </Button>
                     <!--#endregion FACTURACION-->
                 </StackPanel>
                 <!--#endregion MENU-->

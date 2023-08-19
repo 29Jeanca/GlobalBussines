@@ -10,5 +10,6 @@
         public string HoraCita { get; set; }
         public string FechaCita { get; set; }
         public string YaAtendida {get;set;}
+        public int TiempoRestante { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace GlobalBussines.Modelo
             NpgsqlDataReader lector = comando.ExecuteReader();
             while (lector.Read())
             {
-                Citas agregarCita = new Citas()
+                Citas cargarCita = new Citas()
                 {
                     Id = lector.GetInt32(0),
                     NombreCliente = lector.GetString(1),
@@ -36,7 +36,7 @@ namespace GlobalBussines.Modelo
                     YaAtendida = lector.GetString(6),
                     Cedula = lector.GetString(7)
                 };
-                cargarCitas.Add(agregarCita);
+                cargarCitas.Add(cargarCita);
             }
             conxBD.CerrarConexion();
             return cargarCitas;
@@ -44,11 +44,28 @@ namespace GlobalBussines.Modelo
         public void AgregarCita(Citas citas)
         {
             NpgsqlConnection conexion = conxBD.EstablecerConexion();
-            string sentencia = "INSERT INTO citas(cedula_cliente,nombre_cliente,nombre_departamento,nombre_asesor,hora_cita,fecha_cita) VALUES(@cedula_cliente,@nombre_cliente,@nombre_departamento,@nombre_asesor,@hora_cita,@fecha_cita";
+            string sentencia = "INSERT INTO citas(cedula_cliente,nombre_cliente,nombre_departamento,nombre_asesor,hora_cita,fecha_cita) VALUES(@cedula_cliente,@nombre_cliente,@nombre_departamento,@nombre_asesor,@hora_cita,@fecha_cita)";
             NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
             comando.Parameters.AddWithValue("@cedula_cliente", citas.Cedula);
             comando.Parameters.AddWithValue("@nombre_cliente", citas.NombreCliente);
-            comando.Parameters.AddWithValue("@");
+            comando.Parameters.AddWithValue("@nombre_departamento",citas.NombreDepartamento);
+            comando.Parameters.AddWithValue("@nombre_asesor", citas.NombreAsesor);
+            comando.Parameters.AddWithValue("hora_cita", citas.HoraCita);
+            comando.Parameters.AddWithValue("fecha_cita", citas.FechaCita);
+            NpgsqlDataReader lector = comando.ExecuteReader();
+            while (lector.Read())
+            {
+                _ = new Citas()
+                {
+                    Cedula = citas.Cedula,
+                    NombreCliente = citas.NombreCliente,
+                    NombreDepartamento = citas.NombreDepartamento,
+                    NombreAsesor = citas.NombreAsesor,
+                    HoraCita = citas.HoraCita,
+                    FechaCita = citas.FechaCita
+                };
+                conxBD.CerrarConexion();
+            }
         }
     }
 }

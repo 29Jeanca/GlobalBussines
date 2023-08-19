@@ -490,8 +490,12 @@
                       HeadersVisibility="Column"
                       GridLinesVisibility="Horizontal"
                       HorizontalGridLinesBrush="#d3c17e" IsReadOnly='True'
-                      MouseDoubleClick='GridDatos_MouseDoubleClick'>
+                      MouseDoubleClick='GridDatos_MouseDoubleClick'
+                      >
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Cédula"
+                                        Width="*"
+                                        Binding='{Binding Id}' />
                     <DataGridTextColumn Header="Cédula"
                                         Width="*"
                                         Binding='{Binding Cedula}' />

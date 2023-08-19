@@ -32,7 +32,10 @@ namespace GlobalBussines.Vista
 
         private void GridDatos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("PRUEBA MAESTRA FUAAAAAAAAAAAAAAAAAA");
+            DataGrid id_Cliente = (DataGrid)sender;
+            Cliente cliente = (Cliente)id_Cliente.DataContext;
+            int idCliente = cliente.Id;
+            MessageBox.Show($"{idCliente}");
         }
 
         private void BtnAgregarProveedor_Click(object sender, RoutedEventArgs e)

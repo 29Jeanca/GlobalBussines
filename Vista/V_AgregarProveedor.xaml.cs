@@ -25,5 +25,44 @@ namespace GlobalBussines.Vista
             Uri iconUri = new Uri(@"https://i.imgur.com/QZN1jpV.png", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
         }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void BtnProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            V_Proveedores proveedores = new V_Proveedores();
+            proveedores.Show();
+            this.Close();
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+            V_Clientes clientes = new V_Clientes();
+            clientes.Show();
+            this.Close();
+        }
+
+        private void BtnInicio_Click(object sender, RoutedEventArgs e)
+        {
+            V_Inicio inicio = new V_Inicio();
+            inicio.Show();
+            this.Close();
+        }
     }
 }
