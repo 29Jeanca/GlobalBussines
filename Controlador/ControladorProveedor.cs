@@ -10,7 +10,7 @@ namespace GlobalBussines.Controlador
 {
     public class ControladorProveedor
     {
-        private ModeloProveedor modeloProveedor;
+        private readonly ModeloProveedor modeloProveedor;
         
         public ControladorProveedor()
         {
@@ -23,6 +23,18 @@ namespace GlobalBussines.Controlador
         public List<Proveedor> BarraBusqueda(string busqueda)
         {
             return modeloProveedor.BarraBusqueda(busqueda);
+        }
+        public void AgregarProveedor(Proveedor proveedor)
+        {
+            modeloProveedor.AgregarProveedor(proveedor);
+        }
+        public void AgregarProducto(string[] nombreProductos)
+        {
+            modeloProveedor.AgregarProducto(nombreProductos);
+        }
+        public void EnlazarProveedorProducto()
+        {
+            modeloProveedor.EnlazarProveedorProducto();
         }
     }
 }

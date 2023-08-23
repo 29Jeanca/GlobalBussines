@@ -7,12 +7,13 @@ namespace GlobalBussines.Controlador
     public class ControladorCita
     {
         private readonly ModeloCita modeloCita;
-        public ControladorCita()=>modeloCita = new ModeloCita();
+        public ControladorCita() => modeloCita = new ModeloCita();
         public List<Citas> CargarCitas()
         {
             return modeloCita.CargarCitas();
         }
-        public void AgregarCita(Citas citas)=>modeloCita.AgregarCita(citas);
-        
+        public void AgregarCita(Citas citas) => modeloCita.AgregarCita(citas);
+
+        public string TomarNombredCedula(string cedulaCliente) => modeloCita.TomarNombredCedula(cedulaCliente);
     }
 }

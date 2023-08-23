@@ -11,7 +11,7 @@
         Width="1000"
         MaxHeight="835"
         MaxWidth="1000"
-        MinHeight="835"
+        MinHeight="35"
         MinWidth="1000"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -21,12 +21,14 @@
     <Border CornerRadius="10"
             Background="#0a0a0a">
         <Grid Name="Principal"
-              Background="Transparent">
+              Background="Transparent"
+              Margin='0,0,20,35'>
             <!--#region HEADER-->
             <Grid Name="Header"
                   Height="40"
                   VerticalAlignment="Top"
-                  Background="Transparent">
+                  Background="Transparent"
+                  Margin='0,0,-20,0'>
                 <Border CornerRadius="10,10,0,0"
                         Background="#0a0a0a" />
 
@@ -71,12 +73,12 @@
                   Background="Transparent"
                   VerticalAlignment="Bottom"
                   HorizontalAlignment="Right"
-                  Height="860"
+                  Height="805"
                   Width="925"
-                  Margin='0,0,0,-100'>
+                  Margin='0,0,-20,-115'>
                 <Border CornerRadius="0,0,0,10"
                         Background="#1c1c1c"
-                        Margin='0,-40,0,0' />
+                        Margin='0,-70,0,15' />
                 <TextBlock Text='Agregar proveedor'
                            Foreground='#dec773'
                            FontFamily='Arial'
@@ -84,7 +86,8 @@
                            HorizontalAlignment='Center'
                            VerticalAlignment='Top' />
                 <ContentControl Content="{Binding}"
-                                Height='auto' />
+                                Height='auto'
+                                Margin='0,0,0,215' />
                 <StackPanel>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -160,12 +163,13 @@
 
                         <Button Background='#dec773'
                                 BorderBrush='Transparent'
-                                Content='Agregar cita'
+                                Content='Agregar proveedor'
                                 Width='160'
                                 Grid.Row='5'
                                 HorizontalAlignment='Right'
                                 VerticalAlignment='Bottom'
-                                Margin='0,0,25,-62' />
+                                Margin='0,0,25,-62'
+                                Click='Button_Click' />
                     </Grid>
                 </StackPanel>
             </Grid>
@@ -175,10 +179,12 @@
                   Background="Transparent"
                   Width="75"
                   HorizontalAlignment="Left"
-                  Margin="0,40,0,0">
+                  Margin="0,40,0,0"
+                  Height='715'
+                  VerticalAlignment='Top'>
                 <Border Background="#0a0a0a"
                         CornerRadius="0,0,0,10"
-                        Margin='0,0,0,-95' />
+                        Margin='0,0,0,115' />
                 <!--#region MENU-->
                 <StackPanel Background="Transparent"
                             VerticalAlignment="Top"

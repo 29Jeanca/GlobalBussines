@@ -1,17 +1,16 @@
 ﻿using GlobalBussines.Clases;
 using GlobalBussines.Clases.BD;
+using GlobalBussines.Vista;
 using Npgsql;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 
 namespace GlobalBussines.Modelo
 {
     public class ModeloCita
     {
-        private  ConxBD conxBD;
+        private readonly ConxBD conxBD;
         public ModeloCita()
         {
             conxBD = new ConxBD();
@@ -43,6 +42,7 @@ namespace GlobalBussines.Modelo
         }
         public void AgregarCita(Citas citas)
         {
+            try { 
             NpgsqlConnection conexion = conxBD.EstablecerConexion();
             string sentencia = "INSERT INTO citas(cedula_cliente,nombre_cliente,nombre_departamento,nombre_asesor,hora_cita,fecha_cita) VALUES(@cedula_cliente,@nombre_cliente,@nombre_departamento,@nombre_asesor,@hora_cita,@fecha_cita)";
             NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
@@ -50,8 +50,8 @@ namespace GlobalBussines.Modelo
             comando.Parameters.AddWithValue("@nombre_cliente", citas.NombreCliente);
             comando.Parameters.AddWithValue("@nombre_departamento",citas.NombreDepartamento);
             comando.Parameters.AddWithValue("@nombre_asesor", citas.NombreAsesor);
-            comando.Parameters.AddWithValue("hora_cita", citas.HoraCita);
-            comando.Parameters.AddWithValue("fecha_cita", citas.FechaCita);
+            comando.Parameters.AddWithValue("@hora_cita", citas.HoraCita);
+            comando.Parameters.AddWithValue("@fecha_cita", citas.FechaCita);
             NpgsqlDataReader lector = comando.ExecuteReader();
             while (lector.Read())
             {
@@ -66,6 +66,25 @@ namespace GlobalBussines.Modelo
                 };
                 conxBD.CerrarConexion();
             }
+                MessageBox.Show("La cita se agregó con éxito y se guardó en la lista de citas");
+                conxBD.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ha ocurrido un error al agregar la cita😣, inténtalo de nuevo y verifica que la cédula es válida" +
+                    " y que el cliente está registrado en la aplicación" +e.ToString());
+                conxBD.CerrarConexion();
+            }
+        }
+        public string TomarNombredCedula(string cedulaCliente)
+        {
+            NpgsqlConnection conexion = conxBD.EstablecerConexion();
+            string sentencia = "SELECT nombre_cliente || ' ' || apellido1 || ' ' || apellido2 FROM clientes WHERE cedula_cliente=@cedula_cliente";
+            NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
+            comando.Parameters.AddWithValue("@cedula_cliente", cedulaCliente);
+            cedulaCliente = (string)comando.ExecuteScalar();
+            conxBD.CerrarConexion();
+            return cedulaCliente;
         }
     }
 }

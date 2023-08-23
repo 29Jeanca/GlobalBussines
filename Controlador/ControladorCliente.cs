@@ -23,5 +23,9 @@ namespace GlobalBussines.Controlador
         {
             return modeloCliente.BarraBusqueda(busqueda);
         }
+        public void AgregarCliente(Cliente cliente)
+        {
+             modeloCliente.AgregarCliente(cliente);
+        }
     }
 }

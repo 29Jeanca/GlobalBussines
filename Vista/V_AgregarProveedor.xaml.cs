@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GlobalBussines.Clases;
+using GlobalBussines.Controlador;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +21,13 @@ namespace GlobalBussines.Vista
     /// </summary>
     public partial class V_AgregarProveedor : Window
     {
+        private readonly ControladorProveedor controladorProveedor;
         public V_AgregarProveedor()
         {
             InitializeComponent();
             Uri iconUri = new Uri(@"https://i.imgur.com/QZN1jpV.png", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
+            controladorProveedor = new ControladorProveedor();
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -63,6 +67,33 @@ namespace GlobalBussines.Vista
             V_Inicio inicio = new V_Inicio();
             inicio.Show();
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string Nombre = TxtNomProveedor.Text;
+            string Numero = TxtNumeroProveedor.Text;
+            string Correo = TxtCorreo.Text;
+            string Producto = TxtProducto.Text;
+            string[] productos = Producto.Split(',');
+            Proveedor proveedor = new Proveedor()
+            {
+                Nombre = Nombre,
+                Numero = Numero,
+                Correo = Correo
+            };
+            controladorProveedor.AgregarProveedor(proveedor);
+            controladorProveedor.AgregarProducto(productos);
+            controladorProveedor.EnlazarProveedorProducto();
+            LimpiarCampos();
+            
+        }
+        private void LimpiarCampos()
+        {
+            TxtNomProveedor.Text="";
+            TxtCorreo.Text="";
+            TxtNumeroProveedor.Text="";
+            TxtProducto.Text="";
         }
     }
 }

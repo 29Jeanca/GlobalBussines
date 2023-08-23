@@ -71,12 +71,12 @@
                   Background="Transparent"
                   VerticalAlignment="Bottom"
                   HorizontalAlignment="Right"
-                  Height="860"
+                  Height="850"
                   Width="925"
-                  Margin='0,0,0,-100'>
+                  Margin='0,0,0,-90'>
                 <Border CornerRadius="0,0,0,10"
                         Background="#1c1c1c"
-                        Margin='0,-40,0,0' />
+                        Margin='0,-40,0,35' />
                 <TextBlock Text='Agregar cita'
                            Foreground='#dec773'
                            FontFamily='Arial'
@@ -84,8 +84,9 @@
                            HorizontalAlignment='Center'
                            VerticalAlignment='Top' />
                 <ContentControl Content="{Binding}"
-                                Height='auto' />
-                <StackPanel>
+                                Height='auto'
+                                Margin='0,0,0,50' />
+                <StackPanel Margin='0,0,0,35'>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height='auto' />
@@ -110,13 +111,15 @@
                                  Margin='150,86,0,0'
                                  Width='450'
                                  x:Name='TxtCedCliente'
+                                 KeyUp='TxtCedCliente_KeyUp'
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <TextBlock Text='Nombre completo del cliente'
                                    Grid.Row='1'
                                    Foreground='#DEC773'
                                    FontSize='20'
                                    Margin='20,100,0,0'
-                                   HorizontalAlignment='Left' />
+                                   HorizontalAlignment='Left'
+                                   />
                         <TextBox VerticalAlignment="Center"
                                  materialDesign:HintAssist.Hint="   Nombre del cliente"
                                  Foreground='#dec773'
@@ -126,6 +129,7 @@
                                  Margin='150,86,0,0'
                                  Width='450'
                                  x:Name='TxtNomCliente'
+                                 IsReadOnly='True'
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <TextBlock Text='Departamento'
                                    Grid.Row='2'
@@ -186,14 +190,14 @@
                                     Margin='150,70,0,0'
                                     x:Name='InputFecha' />
                         <Button Background='#dec773'
-                                Margin='0,0,20,-32'
                                 BorderBrush='Transparent'
                                 Content='Agregar cita'
                                 Width='160'
-                                Grid.Row='5'
+                                Margin='0,0,20,0'
+                                Grid.Row='0'
                                 HorizontalAlignment='Right'
-                                VerticalAlignment='Bottom'
-                                Click='Button_Click'/>
+                                VerticalAlignment='Top'
+                                Click='Button_Click' />
                     </Grid>
                 </StackPanel>
             </Grid>
@@ -206,7 +210,7 @@
                   Margin="0,40,0,0">
                 <Border Background="#0a0a0a"
                         CornerRadius="0,0,0,10"
-                        Margin='0,0,0,-95' />
+                        Margin='0,0,0,-55' />
                 <!--#region MENU-->
                 <StackPanel Background="Transparent"
                             VerticalAlignment="Top"

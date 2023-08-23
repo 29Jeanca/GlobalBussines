@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using GlobalBussines.Clases;
+using GlobalBussines.Controlador;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace GlobalBussines.Vista
 {
@@ -19,11 +14,13 @@ namespace GlobalBussines.Vista
     /// </summary>
     public partial class V_AgregarCliente : Window
     {
+        private ControladorCliente controladorCliente;
         public V_AgregarCliente()
         {
             InitializeComponent();
             Uri iconUri = new Uri(@"https://i.imgur.com/QZN1jpV.png", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
+            controladorCliente = new ControladorCliente();
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -35,7 +32,6 @@ namespace GlobalBussines.Vista
         {
             this.WindowState = WindowState.Minimized;
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -63,6 +59,28 @@ namespace GlobalBussines.Vista
             V_Inicio inicio = new V_Inicio();
             inicio.Show();
             this.Close();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string Ced = TxtCedCliente.Text;
+            string Nombre = TxtNomCliente.Text;
+            string App1 = TxtApp1Cliente.Text;
+            string App2 = TxtApp2Cliente.Text;
+            string Correo = TxtCorreo.Text;
+            string NumTel = TxtNumTel.Text;
+
+            Cliente cliente = new Cliente()
+            {
+                Cedula = Ced,
+                Nombre = Nombre,
+                Apellido1 = App1,
+                Apellido2 = App2,
+                Correo = Correo,
+                NumTelefono = NumTel
+            };
+            MessageBox.Show("Esperah");
+            await Task.Run(()=>controladorCliente.AgregarCliente(cliente));
         }
     }
 }

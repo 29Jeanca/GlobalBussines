@@ -28,6 +28,8 @@ namespace GlobalBussines.Vista
             Uri iconUri = new Uri(@"https://i.imgur.com/QZN1jpV.png", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             controladorCita = new ControladorCita();
+            ComboAsesor.Items.Add("Pepe Viyuela");
+            ComboDepartamento.Items.Add("Asesor legal");
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -87,6 +89,22 @@ namespace GlobalBussines.Vista
                 FechaCita=fecha
             };
             await Task.Run(()=> controladorCita.AgregarCita(cita));
+            LimpiarCampos();
+        }
+
+        private  void TxtCedCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            string cedula = TxtCedCliente.Text;
+            TxtNomCliente.Text=controladorCita.TomarNombredCedula(cedula);
+        }
+
+        private void LimpiarCampos()
+        {
+            TxtCedCliente.Text = "";
+            ComboDepartamento.Text = "";
+            ComboAsesor.Text = "";
+            InputHora.Text = "";
+            InputFecha.Text = "";
         }
     }
 }

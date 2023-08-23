@@ -1,0 +1,26 @@
+﻿PENDIENTES PARA
+23/08/23
+
+Hacer más pruebas sobre 
+Agg Cliente
+Agg Proveedor
+
+Agregar una ventana que únicamente
+funcione para agregar más productos
+a un proveedor existente.
+
+Hacer lo de las citas en el inicio
+
+Hacer que el calendario no muestre fechas pasadas
+
+Hacer una agenda para tener el nombre y número de los proveedores
+
+Agregar el proceso de una cita
+
+En proceso
+Atendida
+Cancelada
+
+Agregar una ventana para tener únicamente los productos
+
+Hacer los trim y pasar los productos a lowercase

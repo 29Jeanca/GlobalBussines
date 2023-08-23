@@ -450,12 +450,6 @@
                     <DataGridTextColumn Header="Correo"
                                         Width="*"
                                         Binding='{Binding Correo}' />
-                    <DataGridTextColumn Header="Departamento"
-                                        Width="*"
-                                        Binding='{Binding Departamento}' />
-                    <DataGridTextColumn Header="Calificación"
-                                        Width="200"
-                                        Binding='{Binding Calificacion}' />
                     <DataGridTextColumn Header="Petición"
                                         Width="200"
                                         Binding='{Binding Peticion}' />
