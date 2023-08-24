@@ -49,7 +49,7 @@ namespace GlobalBussines.Modelo
         {
             NpgsqlConnection conexion = conxBD.EstablecerConexion();
             List<Producto> productos = new List<Producto>();
-            string sentencia = "SELECT nombre_producto FROM producto_proveedor " +
+            string sentencia = "SELECT DISTINCT nombre_producto FROM producto_proveedor " +
                 "INNER JOIN productos ON producto_proveedor.id_producto=productos.id_producto " +
                 "INNER JOIN proveedores ON producto_proveedor.id_proveedor=@id_proveedor " +
                 "WHERE proveedores.id_proveedor=@id_proveedor";
@@ -64,6 +64,7 @@ namespace GlobalBussines.Modelo
                 productos.Add(producto);
 
             }
+            conxBD.CerrarConexion();
             return productos;
         }
         public List<Proveedor> CargarProveedorPorId(int id_proveedor)
@@ -142,7 +143,7 @@ namespace GlobalBussines.Modelo
                             "¡Se encontró un proveedor con el mismo nombre!", MessageBoxButton.YesNo);
                         if (siNo == MessageBoxResult.Yes)
                         {
-                            V_EditarProveedor proveedores = new V_EditarProveedor();
+                            V_EditarProveedor proveedores = new V_EditarProveedor(id_proveedor);
                             proveedores.Show();
                             V_AgregarProveedor agregarProveedor = new V_AgregarProveedor();
                             agregarProveedor.Close();
@@ -161,6 +162,38 @@ namespace GlobalBussines.Modelo
                         bandera = true;
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                System.Windows.MessageBox.Show("Ha ocurrido un error inesperado 😮" + e);
+                conxBD.CerrarConexion();
+            }
+        }
+        public void ActualizarProveedor(Proveedor proveedor,int id_proveedor)
+        {
+            
+            try
+            {
+                if (!ValidacionCampos(proveedor.Numero, proveedor.Correo))
+                {
+                    System.Windows.MessageBox.Show("Hay datos inválidos del proveedor, verifica que el correo y el número del proveedor tengan" +
+                          " un formato correcto");
+                    return;
+                }
+                    else
+                    {
+                    NpgsqlConnection conexion = conxBD.EstablecerConexion();
+                    string sentenciaProveedores = "UPDATE proveedores SET nombre_proveedor=@nombre_proveedor,numero_proveedor=@numero_proveedor,correo_proveedor =@correo_proveedor WHERE id_proveedor=@id_proveedor";
+                        NpgsqlCommand comando = new NpgsqlCommand(sentenciaProveedores, conexion);
+                        comando.Parameters.AddWithValue("@nombre_proveedor", proveedor.Nombre.Trim().ToLower());
+                        comando.Parameters.AddWithValue("@numero_proveedor", proveedor.Numero.Trim().ToLower());
+                        comando.Parameters.AddWithValue("@correo_proveedor", proveedor.Correo.Trim().ToLower());
+                        comando.Parameters.AddWithValue("@id_proveedor", id_proveedor);
+                        comando.ExecuteScalar();
+                        conxBD.CerrarConexion();
+                        System.Windows.MessageBox.Show("El proveedor se actualizó con éxito");
+                        bandera = true;
+                    }
             }
             catch (Exception e)
             {
@@ -201,6 +234,30 @@ namespace GlobalBussines.Modelo
         }
 
         public void EnlazarProveedorProducto()
+        {
+            try
+            {
+                if (bandera)
+                {
+                    NpgsqlConnection conexion = conxBD.EstablecerConexion();
+                    foreach (var lista in Lista_id_producto)
+                    {
+                        string sentenciaEnlace = "INSERT INTO producto_proveedor(id_proveedor, id_producto) VALUES(@id_proveedor, @id_producto)";
+                        NpgsqlCommand comando = new NpgsqlCommand(sentenciaEnlace, conexion);
+                        comando.Parameters.AddWithValue("@id_proveedor", id_proveedor);
+                        comando.Parameters.AddWithValue("@id_producto", lista);
+                        comando.ExecuteNonQuery();
+                    }
+                    conxBD.CerrarConexion();
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.MessageBox.Show("Ha ocurrido un error inesperado 😮" + e);
+                conxBD.CerrarConexion();
+            }
+        }
+        public void EnlazarProveedorProductoConId(int id_proveedor)
         {
             try
             {

@@ -88,19 +88,19 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Fecha de la cita"
                                             Width="139"
-                                            Binding='{Binding }' />
+                                            Binding='{Binding FechaCita}' />
                         <DataGridTextColumn Header="Cliente"
                                             Width="139"
-                                            Binding='{Binding }' />
+                                            Binding='{Binding NombreCliente}' />
                         <DataGridTextColumn Header="Departamento"
                                             Width="139"
-                                            Binding='{Binding }' />
+                                            Binding='{Binding NombreDepartamento}' />
                         <DataGridTextColumn Header="Asesor"
                                             Width="139"
-                                            Binding='{Binding }' />
+                                            Binding='{Binding NombreAsesor}' />
                         <DataGridTextColumn Header="Hora de la cita"
                                             Width="139"
-                                            Binding='{Binding }' />
+                                            Binding='{Binding HoraCita}' />
                         <DataGridTextColumn Header="Tiempo restante para la cita"
                                             Width="*"
                                             Binding='{Binding }' />

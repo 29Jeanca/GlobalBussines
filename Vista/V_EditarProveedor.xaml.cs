@@ -22,23 +22,71 @@ namespace GlobalBussines.Vista
     public partial class V_EditarProveedor : Window
     {
         readonly ControladorProveedor controladorProveedor;
-        public V_EditarProveedor()
+        private readonly int id_global_proveedor;
+        public V_EditarProveedor(int id_proveedor)
         {
             InitializeComponent();
-            controladorProveedor=new ControladorProveedor();
-           List<Proveedor> proveedor =controladorProveedor.CargarProveedorPorId(3);
+            controladorProveedor = new ControladorProveedor();
+            List<Producto> productos = controladorProveedor.CargarListaProductosPorId(id_proveedor);
+            List<Proveedor> proveedor = controladorProveedor.CargarProveedorPorId(id_proveedor);
             DataContext = proveedor;
-        }
-
-        private void BtnVerProductos_Click(object sender, RoutedEventArgs e)
-        {
-            List<Producto> productos = controladorProveedor.CargarListaProductosPorId(3);
             string nombresProductos = "";
             foreach (var producto in productos)
             {
                 nombresProductos += producto.NombreProducto + "\n";
             }
-            MessageBox.Show(nombresProductos);
+            TxtProductos.Text = nombresProductos;
+            id_global_proveedor = id_proveedor;
+
+    }
+
+    private void BtnVerProductos_Click(object sender, RoutedEventArgs e)
+        {
+
         }
+
+        private void BtnActInfo_Click(object sender, RoutedEventArgs e)
+        {
+            TxtNombreProveedor.IsReadOnly = false;
+            TxtNumero.IsReadOnly = false;
+            TxtCorreo.IsReadOnly = false;
+            TxtAggProductos.IsReadOnly = false;
+            BtnGuardarCambios.Visibility = Visibility.Visible;
+        }
+
+        private void BtnGuardarCambios_Click(object sender, RoutedEventArgs e)
+        {
+            string Nombre = TxtNombreProveedor.Text;
+            string Numero = TxtNumero.Text;
+            string Correo = TxtCorreo.Text;
+            string AggProductos = TxtAggProductos.Text;
+
+            Proveedor proveedor = new Proveedor()
+            {
+                Nombre = Nombre,
+                Numero = Numero,
+                Correo = Correo
+            };
+            controladorProveedor.ActualizarProveedor(proveedor, id_global_proveedor);
+            BtnGuardarCambios.Visibility = Visibility.Hidden;
+            TxtNombreProveedor.IsReadOnly = true;
+            TxtNumero.IsReadOnly = true;
+            TxtCorreo.IsReadOnly = true;
+            TxtAggProductos.IsReadOnly = true;
+            string[] productos = AggProductos.Split(',');
+            if (!String.IsNullOrEmpty(AggProductos)) { 
+            controladorProveedor.AgregarProducto(productos);
+            }
+            controladorProveedor.EnlazarProveedorProductoConId(id_global_proveedor);
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            V_Inicio inicio = new V_Inicio();
+            inicio.Show();
+            this.Close();
+        }
+
     }
 }

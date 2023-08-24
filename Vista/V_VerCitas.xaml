@@ -493,7 +493,7 @@
                       MouseDoubleClick='GridDatos_MouseDoubleClick'
                       >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Cédula"
+                    <DataGridTextColumn Header="Id"
                                         Width="*"
                                         Binding='{Binding Id}' />
                     <DataGridTextColumn Header="Cédula"

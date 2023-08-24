@@ -19,7 +19,7 @@ namespace GlobalBussines.Modelo
         {
             List<Citas> cargarCitas = new List<Citas>();
             NpgsqlConnection conexion = conxBD.EstablecerConexion();
-            string sentencia = "SELECT clientes.id_cliente,citas.nombre_cliente,citas.nombre_departamento,citas.nombre_asesor,citas.hora_cita,citas.fecha_cita,citas.ya_atendida,citas.cedula_cliente FROM citas INNER JOIN clientes ON citas.cedula_cliente=clientes.cedula_cliente";
+            string sentencia = "SELECT id_cita,id_cliente,citas.nombre_cliente,citas.nombre_departamento,citas.nombre_asesor,citas.hora_cita,citas.fecha_cita,citas.ya_atendida,citas.cedula_cliente FROM citas";
             NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
             NpgsqlDataReader lector = comando.ExecuteReader();
             while (lector.Read())
@@ -27,6 +27,7 @@ namespace GlobalBussines.Modelo
                 Citas cargarCita = new Citas()
                 {
                     Id = lector.GetInt32(0),
+                    IdCliente = lector.GetInt32(1),
                     NombreCliente = lector.GetString(1),
                     NombreDepartamento = lector.GetString(2),
                     NombreAsesor = lector.GetString(3),

@@ -30,13 +30,20 @@ namespace GlobalBussines.Vista
             GridDatos.ItemsSource = citas;
         }
 
-        private void GridDatos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void GridDatos_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs  e)
         {
-            DataGrid id_Cliente = (DataGrid)sender;
-            Cliente cliente = (Cliente)id_Cliente.DataContext;
-            int idCliente = cliente.Id;
-            MessageBox.Show($"{idCliente}");
+            DataGrid obtenerId = (DataGrid)sender;
+            Citas citas = (Citas)obtenerId.SelectedItem;
+            int id_cliente = citas.IdCliente;
+            MessageBox.Show(id_cliente+"");
+            /*
+             * DataGrid obtenerId = (DataGrid)sender;
+                Proveedor proveedor = (Proveedor)obtenerId.SelectedItem;
+                int id_proveedor = proveedor.Id;
+             */
+
         }
+
 
         private void BtnAgregarProveedor_Click(object sender, RoutedEventArgs e)
         {

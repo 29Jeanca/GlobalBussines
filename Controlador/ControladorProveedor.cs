@@ -28,6 +28,10 @@ namespace GlobalBussines.Controlador
         {
             modeloProveedor.AgregarProveedor(proveedor);
         }
+        public void ActualizarProveedor(Proveedor proveedor, int id_proveedor)
+        {
+            modeloProveedor.ActualizarProveedor(proveedor, id_proveedor);
+        }
         public void AgregarProducto(string[] nombreProductos)
         {
             modeloProveedor.AgregarProducto(nombreProductos);
@@ -35,6 +39,10 @@ namespace GlobalBussines.Controlador
         public void EnlazarProveedorProducto()
         {
             modeloProveedor.EnlazarProveedorProducto();
+        }
+        public void EnlazarProveedorProductoConId(int id_proveedor)
+        {
+            modeloProveedor.EnlazarProveedorProductoConId(id_proveedor);
         }
         public List<Producto> CargarListaProductosPorId(int id_proveedor)
         {

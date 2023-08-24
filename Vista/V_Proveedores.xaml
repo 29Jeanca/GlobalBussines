@@ -397,27 +397,7 @@
                     </Grid.ColumnDefinitions>
                     <!--#endregion Columnas-->
                     <!--#region Btn 1 -->
-                    <Button x:Name="Btnnum1"
-                            Cursor="Hand"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Camisas"
-                                   FontSize="15" />
-                    </Button>
-                    <!--#endregion 1-->
-                    <!--#region Btn 2 -->
-                    <Button x:Name="Btnnum2"
-                            Cursor="Hand"
-                            Grid.Column="1"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Unformes"
-                                   FontSize="15" />
-                    </Button>
+
                     <Button VerticalAlignment='Top'
                             Margin='0,-35,60,0'
                             BorderBrush='Transparent'
@@ -427,40 +407,15 @@
                             Click='Button_Click' />
                     <!--#endregion 2-->
                     <!--#region Btn 3 -->
-                    <Button x:Name="Btnnum3"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Suministros"
-                                   FontSize="15" />
-                    </Button>
-                    <!--#endregion 3-->
-                    <!--#region Btn 4 -->
-                    <Button x:Name="Btnnum4"
-                            Cursor="Hand"
-                            Grid.Column="3"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text=" Imp Pequeño formato"
-                                   FontSize="15" />
-                    </Button>
-                    <!--#endregion 4-->
-                    <!--#region Btn 5 -->
-                    <Button x:Name="Btnnum5"
-                            Cursor="Hand"
-                            Grid.Column="4"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            Width="185"
-                            Height="40">
-                        <TextBlock Text="Imp Gran formato"
-                                   FontSize="15" />
-                    </Button>
+                    <TextBlock Text='Toca dos veces en un proveedor, así podrás ver más información o modificarlo'
+                               Grid.Row='0'
+                               FontFamily='Arial'
+                               FontSize='20'
+                               HorizontalAlignment='Center'
+                               Grid.ColumnSpan='4'
+                               Foreground='#fff'
+                               VerticalAlignment='Center'
+                               Margin='260,0,0,0'/>
                     <!--#endregion 5-->
                 </Grid>
             </Grid>
@@ -550,9 +505,7 @@
                       HorizontalGridLinesBrush="#d3c17e"
                       MouseDoubleClick='GridDatos_MouseDoubleClick'>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id"
-                                        Width="*"
-                                        Binding='{Binding Id}' />
+
                     <DataGridTextColumn Header="Nombre"
                                         Width="*"
                                         Binding='{Binding Nombre}' />
@@ -562,9 +515,6 @@
                     <DataGridTextColumn Header="Correo"
                                         Width="*"
                                         Binding='{Binding Correo}' />
-                    <DataGridTextColumn Header="Producto"
-                                        Width="*"
-                                        Binding='{Binding Producto}' />
                 </DataGrid.Columns>
             </DataGrid>
             <!--#endregion DATAGRID-->

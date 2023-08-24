@@ -3,6 +3,7 @@
     public class Citas
     {
         public int Id { get; set; }
+        public int IdCliente { get; set; }
         public string Cedula { get; set; }
         public string NombreCliente { get; set; }
         public string NombreDepartamento { get; set; }

@@ -46,9 +46,18 @@ namespace GlobalBussines.Vista
 
         private void GridDatos_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DataGrid obtenerId = (DataGrid)sender;
-            Proveedor proveedor = (Proveedor)obtenerId.SelectedItem;
-            int id_proveedor = proveedor.Id;
+            var siNo = MessageBox.Show("¿Desea modificar la información de este proveedor?", "Actualizar información", MessageBoxButton.YesNo);
+            if (siNo == MessageBoxResult.Yes)
+            {
+                DataGrid obtenerId = (DataGrid)sender;
+                Proveedor proveedor = (Proveedor)obtenerId.SelectedItem;
+                int id_proveedor = proveedor.Id;
+                V_EditarProveedor editarProveedor = new V_EditarProveedor(id_proveedor);
+                editarProveedor.Show();
+                this.Close();
+            }
+            
+           
         }
     }
 }
