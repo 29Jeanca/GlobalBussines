@@ -424,7 +424,7 @@
                             Width='90'
                             Content='Atrás'
                             Background='#d3c17e'
-                            Click='Button_Click'/>
+                            Click='Button_Click' />
                     <!--#endregion 2-->
                     <!--#region Btn 3 -->
                     <Button x:Name="Btnnum3"
@@ -493,7 +493,7 @@
                      Grid.Column="2"
                      Grid.Row="3"
                      FontSize="20"
-                     x:Name='BarraBusqueda'/>
+                     x:Name='BarraBusqueda' />
             <!--#endregion TEXTBOX-->
             <!--#region BTN BUSCADOR-->
             <Button Style="{DynamicResource STYLE_BTN_BUSCAR}"
@@ -547,19 +547,24 @@
                       RowBackground="Transparent"
                       HeadersVisibility="Column"
                       GridLinesVisibility="Horizontal"
-                      HorizontalGridLinesBrush="#d3c17e">
+                      HorizontalGridLinesBrush="#d3c17e"
+                      MouseDoubleClick='GridDatos_MouseDoubleClick'>
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id"
+                                        Width="*"
+                                        Binding='{Binding Id}' />
                     <DataGridTextColumn Header="Nombre"
                                         Width="*"
-                                        Binding='{Binding Nombre}'/>
+                                        Binding='{Binding Nombre}' />
                     <DataGridTextColumn Header="Numero"
                                         Width="*"
-                                        Binding='{Binding Numero}'/>
+                                        Binding='{Binding Numero}' />
                     <DataGridTextColumn Header="Correo"
                                         Width="*"
-                                        Binding='{Binding Correo}'/>
+                                        Binding='{Binding Correo}' />
                     <DataGridTextColumn Header="Producto"
-                                        Width="*" Binding='{Binding Producto}'/>
+                                        Width="*"
+                                        Binding='{Binding Producto}' />
                 </DataGrid.Columns>
             </DataGrid>
             <!--#endregion DATAGRID-->

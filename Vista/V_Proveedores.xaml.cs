@@ -3,6 +3,7 @@ using GlobalBussines.Controlador;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace GlobalBussines.Vista
@@ -41,6 +42,13 @@ namespace GlobalBussines.Vista
             V_Inicio inicio = new V_Inicio();
             inicio.Show();
             this.Close();
+        }
+
+        private void GridDatos_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DataGrid obtenerId = (DataGrid)sender;
+            Proveedor proveedor = (Proveedor)obtenerId.SelectedItem;
+            int id_proveedor = proveedor.Id;
         }
     }
 }

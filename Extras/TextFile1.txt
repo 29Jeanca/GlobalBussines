@@ -1,13 +1,16 @@
 ﻿PENDIENTES PARA
-23/08/23
+24/08/23
 
 Hacer más pruebas sobre 
-Agg Cliente
-Agg Proveedor
+Agg Cliente (L)
+Agg Proveedor (L)
+
+Hacer los trim y pasar los productos a lowercase (L)
+
 
 Agregar una ventana que únicamente
 funcione para agregar más productos
-a un proveedor existente.
+a un proveedor existente.(L)
 
 Hacer lo de las citas en el inicio
 
@@ -23,4 +26,3 @@ Cancelada
 
 Agregar una ventana para tener únicamente los productos
 
-Hacer los trim y pasar los productos a lowercase

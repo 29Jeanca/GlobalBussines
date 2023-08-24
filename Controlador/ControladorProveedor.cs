@@ -36,5 +36,13 @@ namespace GlobalBussines.Controlador
         {
             modeloProveedor.EnlazarProveedorProducto();
         }
+        public List<Producto> CargarListaProductosPorId(int id_proveedor)
+        {
+           return modeloProveedor.CargarListaProductosPorId(id_proveedor);
+        }
+        public List<Proveedor> CargarProveedorPorId(int id_proveedor)
+        {
+            return modeloProveedor.CargarProveedorPorId(id_proveedor);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using GlobalBussines.Clases;
 using GlobalBussines.Controlador;
+using GlobalBussines.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,15 @@ namespace GlobalBussines.Vista
             string Numero = TxtNumeroProveedor.Text;
             string Correo = TxtCorreo.Text;
             string Producto = TxtProducto.Text;
+
+            TxtCorreo.Text.Trim();
+            TxtNumeroProveedor.Text.Trim();
+            TxtNomProveedor.Text.Trim();
+            TxtProducto.Text.Trim();
+
+            Nombre.ToLower();
+            Correo.ToLower();
+            Producto.ToLower();
             string[] productos = Producto.Split(',');
             Proveedor proveedor = new Proveedor()
             {
@@ -86,14 +96,13 @@ namespace GlobalBussines.Vista
             controladorProveedor.AgregarProducto(productos);
             controladorProveedor.EnlazarProveedorProducto();
             LimpiarCampos();
-            
         }
         private void LimpiarCampos()
         {
-            TxtNomProveedor.Text="";
-            TxtCorreo.Text="";
-            TxtNumeroProveedor.Text="";
-            TxtProducto.Text="";
+            TxtNomProveedor.Text = "";
+            TxtCorreo.Text = "";
+            TxtNumeroProveedor.Text = "";
+            TxtProducto.Text = "";
         }
     }
 }
