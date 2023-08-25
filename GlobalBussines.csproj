@@ -84,6 +84,9 @@
     <Compile Include="Vista\V_Clientes.xaml.cs">
       <DependentUpon>V_Clientes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vista\V_ControlarCitas.xaml.cs">
+      <DependentUpon>V_ControlarCitas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\V_EditarProveedor.xaml.cs">
       <DependentUpon>V_EditarProveedor.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vista\V_Clientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\V_ControlarCitas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

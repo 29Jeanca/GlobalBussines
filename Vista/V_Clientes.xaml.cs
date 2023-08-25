@@ -44,5 +44,12 @@ namespace GlobalBussines.Vista
             agregarCliente.Show();
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            V_Inicio inicio = new V_Inicio();
+            inicio.Show();
+            this.Close();
+        }
     }
 }

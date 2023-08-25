@@ -3,7 +3,8 @@ using GlobalBussines.Controlador;
 using System;
 using System.Collections.Generic;
 using System.Windows;
-    using System.Windows.Input;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -134,6 +135,23 @@ namespace GlobalBussines.Vista
 
             }
             return "NADA";
+        }
+
+        private void GridDatos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var siNo = MessageBox.Show("¿Desea interactuar con esta cita?", "Atención de la cita", MessageBoxButton.YesNo);
+            if (siNo == MessageBoxResult.Yes)
+            {
+                DataGrid id_cita = (DataGrid)sender;
+                Citas citas = (Citas)id_cita.SelectedItem;
+                int idCita = citas.Id;
+              
+                V_ControlarCitas controlarCitas = new V_ControlarCitas(idCita);
+                controlarCitas.Show();
+                this.Close();
+            }
+
+            
         }
     }
 

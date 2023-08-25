@@ -32,15 +32,17 @@ namespace GlobalBussines.Vista
 
         private void GridDatos_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs  e)
         {
-            DataGrid obtenerId = (DataGrid)sender;
-            Citas citas = (Citas)obtenerId.SelectedItem;
-            int id_cliente = citas.IdCliente;
-            MessageBox.Show(id_cliente+"");
-            /*
-             * DataGrid obtenerId = (DataGrid)sender;
-                Proveedor proveedor = (Proveedor)obtenerId.SelectedItem;
-                int id_proveedor = proveedor.Id;
-             */
+            var siNo = MessageBox.Show("¿Desea interactuar con esta cita?", "Atención de la cita", MessageBoxButton.YesNo);
+            if (siNo == MessageBoxResult.Yes)
+            {
+                DataGrid id_cita = (DataGrid)sender;
+                Citas citas = (Citas)id_cita.SelectedItem;
+                int idCita = citas.Id;
+          
+                V_ControlarCitas controlarCitas = new V_ControlarCitas(idCita);
+                controlarCitas.Show();
+                this.Close();
+            }
 
         }
 

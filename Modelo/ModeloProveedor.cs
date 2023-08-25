@@ -93,7 +93,7 @@ namespace GlobalBussines.Modelo
         {
             NpgsqlConnection conexion = conxBD.EstablecerConexion();
             List<Proveedor> resultadoBusqueda = new List<Proveedor>();
-            string sentencia = "SELECT id_proveedor, nombre_proveedor, num_telefono,correo FROM proveedores WHERE nombre_proveedor LIKE @busqueda";
+            string sentencia = "SELECT id_proveedor, nombre_proveedor, numero_proveedor,correo_proveedor FROM proveedores WHERE nombre_proveedor LIKE @busqueda";
             NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
             comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");
             NpgsqlDataReader lector = comando.ExecuteReader();

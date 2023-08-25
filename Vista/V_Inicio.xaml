@@ -77,6 +77,12 @@
                            Foreground='#dec773'
                            FontSize='20'
                            Margin='0,0,20,0'/>
+                <TextBlock Text='¡Toca una cita para interactuar con ella📝!'
+                           HorizontalAlignment='Left'
+                           VerticalAlignment='Center'
+                           Foreground='#dec773'
+                           FontSize='20'
+                           Margin='0,0,20,0' />
                 <DataGrid Style="{DynamicResource STYLE_DATAGRID}"
                           Grid.Row="7"
                           Grid.Column="1"
@@ -96,8 +102,9 @@
                           GridLinesVisibility="Horizontal"
                           HorizontalGridLinesBrush="#d3c17e"
                           Height='240'
+                          IsReadOnly='True'
                           VerticalAlignment='Bottom'
-                          >
+                          MouseDoubleClick='GridDatos_MouseDoubleClick'>
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="Cliente"

@@ -493,19 +493,16 @@
                       MouseDoubleClick='GridDatos_MouseDoubleClick'
                       >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id"
-                                        Width="*"
-                                        Binding='{Binding Id}' />
                     <DataGridTextColumn Header="Cédula"
                                         Width="*"
                                         Binding='{Binding Cedula}' />
-                    <DataGridTextColumn Header="Nombre del cliente"
+                    <DataGridTextColumn Header="Cliente"
                                         Width="*"
                                         Binding='{Binding NombreCliente}' />
-                    <DataGridTextColumn Header="Nombre del departamento"
+                    <DataGridTextColumn Header="Departamento"
                                         Width="*"
                                         Binding='{Binding NombreDepartamento}' />
-                    <DataGridTextColumn Header="Asesor que atiende"
+                    <DataGridTextColumn Header="Asesor"
                                         Width="*"
                                         Binding='{Binding NombreAsesor}' />
                     <DataGridTextColumn Header="Hora de la cita"

@@ -20,5 +20,9 @@ namespace GlobalBussines.Controlador
         {
             return modeloCita.CargarCitasdHoy();
         }
+        public void ProcesoCita(int id_cita, string estado_cita)
+        {
+            modeloCita.ProcesoCita(id_cita, estado_cita);
+        }
     }
 }

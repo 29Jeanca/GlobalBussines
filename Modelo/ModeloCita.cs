@@ -46,7 +46,7 @@ namespace GlobalBussines.Modelo
 
             List<Citas> cargarCitas = new List<Citas>();
             NpgsqlConnection conexion = conxBD.EstablecerConexion();
-            string sentencia = "SELECT id_cita,id_cliente,citas.nombre_cliente,citas.nombre_departamento,citas.nombre_asesor,citas.hora_cita,citas.ya_atendida FROM citas WHERE fecha_cita = NOW()::date";
+            string sentencia = "SELECT id_cita,id_cliente,citas.nombre_cliente,citas.nombre_departamento,citas.nombre_asesor,citas.hora_cita,citas.ya_atendida FROM citas WHERE fecha_cita = CURRENT_DATE";
             NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
             NpgsqlDataReader lector = comando.ExecuteReader();
             while (lector.Read())
@@ -101,6 +101,15 @@ namespace GlobalBussines.Modelo
                     " y que el cliente está registrado en la aplicación" +e.ToString());
                 conxBD.CerrarConexion();
             }
+        }
+        public void ProcesoCita(int id_cita,string estado_cita)
+        {
+            NpgsqlConnection conexion = conxBD.EstablecerConexion();
+            string sentencia = "UPDATE citas SET ya_atendida=@estado_cita WHERE id_cita=@id_cita";
+            NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
+            comando.Parameters.AddWithValue("@id_cita",id_cita);
+            comando.Parameters.AddWithValue("@estado_cita", estado_cita);
+            comando.ExecuteNonQuery();
         }
         public string TomarNombredCedula(string cedulaCliente)
         {

@@ -1,5 +1,5 @@
 ﻿PENDIENTES PARA
-24/08/23
+25/08/23
 
 Hacer más pruebas sobre 
 Agg Cliente (L)
@@ -14,15 +14,19 @@ a un proveedor existente.(L)
 
 Hacer lo de las citas en el inicio (L)
 
-Hacer que el calendario no muestre fechas pasadas
-
-Hacer una agenda para tener el nombre y número de los proveedores
-
 Agregar el proceso de una cita
 
 En proceso
 Atendida
-Cancelada
+Cancelada (L)
 
-Agregar una ventana para tener únicamente los productos
+Hacer que el calendario no muestre fechas pasadas (L)
+
+
+
+Agregar una ventana para tener únicamente los productos 
+
+Validaciones sobre citas
+
+Pruebas finales
 

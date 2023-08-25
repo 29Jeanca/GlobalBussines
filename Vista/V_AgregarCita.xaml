@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlobalBussines.Vista"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Inicio"
@@ -173,6 +174,7 @@
                                                    BorderBrush='#dec773'
                                                    BorderThickness='2'
                                                    Margin='150,86,0,0'
+                                                   Is24Hours='True'
                                                    x:Name='InputHora' />
                         <TextBlock Text='Fecha'
                                    Grid.Row='5'
@@ -188,7 +190,8 @@
                                     BorderBrush='#dec773'
                                     BorderThickness='2'
                                     Margin='150,70,0,0'
-                                    x:Name='InputFecha' />
+                                    x:Name='InputFecha'
+                                    DisplayDateStart="{x:Static sys:DateTime.Now}"/>
                         <Button Background='#dec773'
                                 BorderBrush='Transparent'
                                 Content='Agregar cita'

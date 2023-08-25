@@ -351,6 +351,7 @@
     </Window.Resources>
     <Border CornerRadius="10"
             Background="#ffedff">
+
         <Grid Name="GridUsuarios">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20" />
@@ -403,6 +404,7 @@
                     x:Name="BtnBuscar"
                     Click='BtnBuscar_Click'
                     HorizontalAlignment="Left">
+
                 <TextBlock Text="Buscar"
                            Foreground="Black"
                            FontSize="15" />
@@ -420,6 +422,8 @@
                 <TextBlock Text="Agregar Cliente"
                            FontSize="14" />
             </Button>
+            <Button Content='Atrás' Background='#dec773' BorderBrush='Transparent' Width='150' Grid.ColumnSpan='2' HorizontalAlignment='Left' Click='Button_Click' />
+
             <DataGrid Style="{DynamicResource STYLE_DATAGRID}"
                       Grid.Row="4"
                       Grid.Column="1"
