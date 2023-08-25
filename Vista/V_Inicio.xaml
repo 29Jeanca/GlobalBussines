@@ -158,7 +158,9 @@
                     <Button x:Name="BtnInicio"
                             Cursor="Hand"
                             Background="Transparent"
-                            BorderBrush="Transparent" Height='150'>
+                            BorderBrush="Transparent" Height='50'
+                            ToolTip='Inicio'
+                            >
                         <Image Width="30"
                                HorizontalAlignment="Center"
                                Source="https://i.imgur.com/sahZxst.png"/>
@@ -167,7 +169,8 @@
                             Cursor="Hand"
                             Background="Transparent"
                             BorderBrush="Transparent" Height='150'
-                            Click='BtnClientes_Click'>
+                            Click='BtnClientes_Click'
+                            ToolTip='Clientes'>
                         <Image Width="30"
                                HorizontalAlignment="Center"
                                Source="https://i.imgur.com/DrXiSZb.png"/>
@@ -175,11 +178,24 @@
                     <Button x:Name="BtnProveedores"
                             Cursor="Hand"
                             Background="Transparent"
-                            BorderBrush="Transparent" Height='260'
-                            Click='BtnProveedores_Click'>
+                            BorderBrush="Transparent"
+                            Height='235'
+                            Click='BtnProveedores_Click'
+                            ToolTip='Proveedores'>
                         <Image Width="30"
                                HorizontalAlignment="Center"
                                Source="https://i.imgur.com/tPfzJPO.png"/>
+                    </Button>
+                    <Button x:Name="BtnCitas"
+                            Cursor="Hand"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Height='100'
+                            Click='BtnCitas_Click'
+                            ToolTip='Proveedores'>
+                        <Image Width="30"
+                               HorizontalAlignment="Center"
+                               Source="https://i.imgur.com/XkmURtU.png" />
                     </Button>
                     <!--#endregion PROVEEDORES-->
                     <!--#region FACTURACION-->

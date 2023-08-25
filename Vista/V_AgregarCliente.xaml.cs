@@ -14,7 +14,7 @@ namespace GlobalBussines.Vista
     /// </summary>
     public partial class V_AgregarCliente : Window
     {
-        private ControladorCliente controladorCliente;
+        private readonly ControladorCliente controladorCliente;
         public V_AgregarCliente()
         {
             InitializeComponent();
@@ -79,8 +79,14 @@ namespace GlobalBussines.Vista
                 Correo = Correo,
                 NumTelefono = NumTel
             };
-            MessageBox.Show("Esperah");
             await Task.Run(()=>controladorCliente.AgregarCliente(cliente));
+        }
+
+        private void BtnCitas_Click(object sender, RoutedEventArgs e)
+        {
+            V_VerCitas citas = new V_VerCitas();
+            citas.Show();
+            this.Close();
         }
     }
 }

@@ -106,5 +106,13 @@ namespace GlobalBussines.Vista
             InputHora.Text = "";
             InputFecha.Text = "";
         }
+
+
+        private void BtnCitas_Click(object sender, RoutedEventArgs e)
+        {
+            V_VerCitas citas = new V_VerCitas();
+            citas.Show();
+            this.Close();
+        }
     }
 }

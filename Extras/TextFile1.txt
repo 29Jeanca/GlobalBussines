@@ -23,10 +23,7 @@ Cancelada (L)
 Hacer que el calendario no muestre fechas pasadas (L)
 
 
-
-Agregar una ventana para tener únicamente los productos 
-
-Validaciones sobre citas
-
-Pruebas finales
+Validaciones sobre citas (L)
+ 
+Pruebas finales (L)
 

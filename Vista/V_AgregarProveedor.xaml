@@ -213,11 +213,22 @@
                             Cursor="Hand"
                             Background="Transparent"
                             BorderBrush="Transparent"
-                            Height='250'
+                            Height='140'
                             Click='BtnProveedores_Click'>
                         <Image Width="30"
                                HorizontalAlignment="Center"
                                Source="https://i.imgur.com/tPfzJPO.png" />
+                    </Button>
+                    <Button x:Name="BtnCitas"
+                            Cursor="Hand"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Height='100'
+                            Click='BtnCitas_Click'
+                            ToolTip='Citas'>
+                        <Image Width="30"
+                               HorizontalAlignment="Center"
+                               Source="https://i.imgur.com/XkmURtU.png" />
                     </Button>
                     <!--#endregion PROVEEDORES-->
                     <!--#region FACTURACION-->
