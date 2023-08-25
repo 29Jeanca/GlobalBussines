@@ -12,7 +12,7 @@ Agregar una ventana que únicamente
 funcione para agregar más productos
 a un proveedor existente.(L)
 
-Hacer lo de las citas en el inicio
+Hacer lo de las citas en el inicio (L)
 
 Hacer que el calendario no muestre fechas pasadas
 

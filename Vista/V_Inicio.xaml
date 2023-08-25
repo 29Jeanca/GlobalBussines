@@ -77,33 +77,44 @@
                            Foreground='#dec773'
                            FontSize='20'
                            Margin='0,0,20,0'/>
-                <DataGrid materialDesign:DataGridAssist.SelectedCellBorderBrush="Crimson"
+                <DataGrid Style="{DynamicResource STYLE_DATAGRID}"
+                          Grid.Row="7"
+                          Grid.Column="1"
+                          Grid.RowSpan="3"
+                          Grid.ColumnSpan="3"
+                          x:Name="GridDatos"
+                          AutoGenerateColumns="False"
+                          Background="GhostWhite"
+                          Foreground="#d3c17e"
+                          FontSize="15"
                           CanUserAddRows="False"
-                          Width='auto'
-                          Height='250'
+                          CanUserResizeColumns="True"
+                          CanUserResizeRows="False"
+                          CanUserSortColumns="False"
+                          RowBackground="Transparent"
+                          HeadersVisibility="Column"
+                          GridLinesVisibility="Horizontal"
+                          HorizontalGridLinesBrush="#d3c17e"
+                          Height='240'
                           VerticalAlignment='Bottom'
-                          HorizontalAlignment='Right'
-                          Margin='20,0,20,0'
-                          FontSize='12'>
+                          >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Fecha de la cita"
-                                            Width="139"
-                                            Binding='{Binding FechaCita}' />
+
                         <DataGridTextColumn Header="Cliente"
-                                            Width="139"
+                                            Width="*"
                                             Binding='{Binding NombreCliente}' />
                         <DataGridTextColumn Header="Departamento"
-                                            Width="139"
+                                            Width="*"
                                             Binding='{Binding NombreDepartamento}' />
                         <DataGridTextColumn Header="Asesor"
-                                            Width="139"
-                                            Binding='{Binding NombreAsesor}' />
-                        <DataGridTextColumn Header="Hora de la cita"
-                                            Width="139"
-                                            Binding='{Binding HoraCita}' />
-                        <DataGridTextColumn Header="Tiempo restante para la cita"
                                             Width="*"
-                                            Binding='{Binding }' />
+                                            Binding='{Binding NombreAsesor}' />
+                        <DataGridTextColumn Header="Hora cita"
+                                            Width="*"
+                                            Binding='{Binding HoraCita}' />
+                        <DataGridTextColumn Header="Estado de la cita"
+                                            Width="*"
+                                            Binding='{Binding YaAtendida}' />
                     </DataGrid.Columns>
                 </DataGrid>
                 <ContentControl Content="{Binding}"/>

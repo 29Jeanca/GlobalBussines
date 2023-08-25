@@ -15,5 +15,10 @@ namespace GlobalBussines.Controlador
         public void AgregarCita(Citas citas) => modeloCita.AgregarCita(citas);
 
         public string TomarNombredCedula(string cedulaCliente) => modeloCita.TomarNombredCedula(cedulaCliente);
+
+        public List<Citas> CargarCitasdHoy()
+        {
+            return modeloCita.CargarCitasdHoy();
+        }
     }
 }

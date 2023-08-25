@@ -1,4 +1,6 @@
-﻿namespace GlobalBussines.Clases
+﻿using System;
+
+namespace GlobalBussines.Clases
 {
     public class Citas
     {
@@ -9,7 +11,7 @@
         public string NombreDepartamento { get; set; }
         public string NombreAsesor { get; set; }
         public string HoraCita { get; set; }
-        public string FechaCita { get; set; }
+        public DateTime FechaCita { get; set; }
         public string YaAtendida {get;set;}
         public int TiempoRestante { get; set; }
     }

@@ -1,5 +1,8 @@
-﻿    using System;
-    using System.Windows;
+﻿using GlobalBussines.Clases;
+using GlobalBussines.Controlador;
+using System;
+using System.Collections.Generic;
+using System.Windows;
     using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
@@ -16,6 +19,7 @@ namespace GlobalBussines.Vista
         private readonly DispatcherTimer reloj;
         public static string mesString;
         public static string diaString;
+        private readonly ControladorCita controladorCita;
         public V_Inicio()
         {
             InitializeComponent();
@@ -30,12 +34,14 @@ namespace GlobalBussines.Vista
             int anio;
             int diaSemana;
             diaSemana = (int)fechaActual.DayOfWeek;
-            MessageBox.Show(diaSemana + "");
             dia = fechaActual.Day;
             mes = fechaActual.Month;
             anio = fechaActual.Year;
-          
+            controladorCita = new ControladorCita();
             Fecha.Text = $"{ObtenerDia(dia)},{dia} de {ObtenerMes(mes)} de \n {anio}";
+            List<Citas> citas = controladorCita.CargarCitasdHoy();
+            GridDatos.ItemsSource = citas;
+
 
         }
 

@@ -78,7 +78,7 @@ namespace GlobalBussines.Vista
             string departamento = ComboDepartamento.Text;
             string asesor = ComboAsesor.Text;
             string hora = InputHora.Text;
-            string fecha = InputFecha.SelectedDate.Value.Date.ToString("dd/MM/yyyy");
+            DateTime fecha = InputFecha.SelectedDate.Value.Date;
             Citas cita = new Citas()
             {
                 Cedula = cedula,

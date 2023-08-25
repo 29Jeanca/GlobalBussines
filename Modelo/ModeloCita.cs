@@ -28,13 +28,38 @@ namespace GlobalBussines.Modelo
                 {
                     Id = lector.GetInt32(0),
                     IdCliente = lector.GetInt32(1),
-                    NombreCliente = lector.GetString(1),
-                    NombreDepartamento = lector.GetString(2),
-                    NombreAsesor = lector.GetString(3),
-                    HoraCita = lector.GetString(4),
-                    FechaCita = lector.GetString(5),
+                    NombreCliente = lector.GetString(2),
+                    NombreDepartamento = lector.GetString(3),
+                    NombreAsesor = lector.GetString(4),
+                    HoraCita = lector.GetString(5),
+                    FechaCita = lector.GetDateTime(6),
+                    YaAtendida = lector.GetString(7),
+                    Cedula = lector.GetString(8)
+                };
+                cargarCitas.Add(cargarCita);
+            }
+            conxBD.CerrarConexion();
+            return cargarCitas;
+        }
+        public List<Citas> CargarCitasdHoy()
+        {
+
+            List<Citas> cargarCitas = new List<Citas>();
+            NpgsqlConnection conexion = conxBD.EstablecerConexion();
+            string sentencia = "SELECT id_cita,id_cliente,citas.nombre_cliente,citas.nombre_departamento,citas.nombre_asesor,citas.hora_cita,citas.ya_atendida FROM citas WHERE fecha_cita = NOW()::date";
+            NpgsqlCommand comando = new NpgsqlCommand(sentencia, conexion);
+            NpgsqlDataReader lector = comando.ExecuteReader();
+            while (lector.Read())
+            {
+                Citas cargarCita = new Citas()
+                {
+                    Id = lector.GetInt32(0),
+                    IdCliente = lector.GetInt32(1),
+                    NombreCliente = lector.GetString(2),
+                    NombreDepartamento = lector.GetString(3),
+                    NombreAsesor = lector.GetString(4),
+                    HoraCita = lector.GetString(5),
                     YaAtendida = lector.GetString(6),
-                    Cedula = lector.GetString(7)
                 };
                 cargarCitas.Add(cargarCita);
             }
@@ -72,7 +97,7 @@ namespace GlobalBussines.Modelo
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ha ocurrido un error al agregar la cita😣, inténtalo de nuevo y verifica que la cédula es válida" +
+                MessageBox.Show("Ha ocurrido un error al agregar la cita😣, inténtalo de nuevo, verifica que la cédula es válida" +
                     " y que el cliente está registrado en la aplicación" +e.ToString());
                 conxBD.CerrarConexion();
             }
